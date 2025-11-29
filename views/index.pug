@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    if user
+        h3 Welcome back #{user.name}!
+    h1 CPAN-212-0NA Group #1 Movie Catalog
+    //- Loop through all books
+    each book in books 
+        .book-details
+            //- Display title, author, pages, rating
+            
+            //- Link to book with id
+            label Title: 
+                a(href="/book/" + book._id) #{book.title}
+            p Author: #{book.author}
+            p Pages: #{book.pages}
+            p Rating: #{book.rating}
+            p Genres: #{book.genres.join(', ')}

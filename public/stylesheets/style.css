@@ -1,0 +1,154 @@
+/* ---------- GLOBAL STYLES ---------- */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+h1, h5 {
+    text-align: center;
+}
+
+/* Simple centered container for pages */
+.container {
+    max-width: 700px;
+    background: white;
+    padding: 25px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+
+/* ---------- LOGIN FORM ---------- */
+
+form {
+    background: white;
+    padding: 20px;
+    max-width: 350px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Buttons */
+input.btn.btn-primary,
+a.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+input.btn.btn-primary:hover,
+a.btn:hover {
+    background-color: #0056b3;
+}
+
+a.btn.btn-default {
+    background-color: #6c757d;
+}
+
+a.btn.btn-default:hover {
+    background-color: #5a6268;
+}
+
+/* Delete button special style */
+a.delete-book {
+    background-color: #dc3545;
+}
+
+a.delete-book:hover {
+    background-color: #b02a37;
+}
+
+/* Error messages */
+p {
+    margin: 5px 0;
+}
+
+
+/* ---------- BOOK DETAILS PAGE ---------- */
+
+.book-details {
+    max-width: 600px;
+    margin: 20px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.book-details h1 {
+    margin-bottom: 5px;
+}
+
+.book-details h5 {
+    margin: 5px 0;
+    font-weight: normal;
+    text-align: left;
+}
+
+.book-details ul {
+    padding-left: 20px;
+}
+
+.book-details li {
+    margin-bottom: 5px;
+}
+
+/* Horizontal line spacing */
+.book-details hr {
+    margin: 20px 0;
+}
+
+/* ---------- NAVBAR ---------- */
+
+.navbar {
+    background-color: #007bff;
+    padding: 10px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.nav-item {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.nav-item:hover {
+    background-color: #0056b3;
+}

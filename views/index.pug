@@ -3,16 +3,28 @@ extends layout
 block content
     if user
         h3 Welcome back #{user.name}!
-    h1 CPAN-212-0NA Group #1 Movie Catalog
-    //- Loop through all books
-    each book in books 
-        .book-details
-            //- Display title, author, pages, rating
+    h1 CPAN-212-0NA Group #1 Movie Shop
+    //- Loop through all movies
+    each movie in movies
+        .movie-details
+            //- Display title, description, year, rating
             
-            //- Link to book with id
+            //- Link to movie with id
             label Title: 
-                a(href="/book/" + book._id) #{book.title}
-            p Author: #{book.author}
-            p Pages: #{book.pages}
-            p Rating: #{book.rating}
-            p Genres: #{book.genres.join(', ')}
+                a(href="/movie/" + movie._id) #{movie.title}
+
+            br
+            label Description: 
+                span #{movie.description}
+
+            br
+            label Year: 
+                span #{movie.year}
+
+            br
+            label Rating: 
+                span #{movie.rating} / 10
+
+            br
+            label Genres: 
+                span #{movie.genres.join(', ')}

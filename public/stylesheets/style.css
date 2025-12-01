@@ -28,7 +28,7 @@ h1, h5 {
 form {
     background: white;
     padding: 20px;
-    max-width: 350px;
+    max-width: 640px;
     margin: 0 auto;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -50,6 +50,15 @@ input.form-control {
     border: 1px solid #cccccc;
     border-radius: 5px;
     box-sizing: border-box;
+}
+
+textarea.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 5px;
 }
 
 /* Buttons */
@@ -80,11 +89,11 @@ a.btn.btn-default:hover {
 }
 
 /* Delete button special style */
-a.delete-book {
+a.delete-movie {
     background-color: #dc3545;
 }
 
-a.delete-book:hover {
+a.delete-movie:hover {
     background-color: #b02a37;
 }
 
@@ -94,9 +103,9 @@ p {
 }
 
 
-/* ---------- BOOK DETAILS PAGE ---------- */
+/* ---------- MOVIE DETAILS PAGE ---------- */
 
-.book-details {
+.movie-details {
     max-width: 600px;
     margin: 20px auto;
     background: white;
@@ -105,27 +114,31 @@ p {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.book-details h1 {
+.movie-details h1 {
     margin-bottom: 5px;
 }
 
-.book-details h5 {
+.movie-details h5 {
     margin: 5px 0;
     font-weight: normal;
     text-align: left;
 }
 
-.book-details ul {
+.movie-details ul {
     padding-left: 20px;
 }
 
-.book-details li {
+.movie-details li {
     margin-bottom: 5px;
 }
 
 /* Horizontal line spacing */
-.book-details hr {
+.movie-details hr {
     margin: 20px 0;
+}
+
+.movie-details span {
+    font-weight: normal;
 }
 
 /* ---------- NAVBAR ---------- */

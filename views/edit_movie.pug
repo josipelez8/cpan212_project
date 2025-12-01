@@ -1,0 +1,44 @@
+extends layout 
+
+block content 
+    h1= movie.title 
+    form(method="POST" action="/movie/edit/" + movie._id)
+        // Hidden input for movie ID
+        input(type="hidden" name="fallbackID" value=movie._id)
+
+        #form-group 
+            label Title:
+            input.form-control(name="title" type="text" value=movie.title)
+
+        .form-group
+            label(for="description") Description:
+            textarea.form-control#description(name="description" rows="5" placeholder="Enter a detailed description...")= movie.description
+
+        #form-group 
+            label Year:
+            input.form-control(name="year" type="number" value=movie.year)
+
+        #form-group
+            label Genres:
+
+            each genre in genres
+                label
+                    if movie.genres.includes(genre)
+                        input(type="checkbox", name="genres", value=genre, checked=true)
+                    else
+                        input(type="checkbox", name="genres", value=genre)
+
+                    |  #{genre}
+
+        #form-group 
+            label Rating:
+            input.form-control(name="rating" type="number" value=movie.rating min="0" max="10")
+
+        //- Loop through and display errors
+        if errors
+            each error in errors 
+                p(style="color:red") #{error.msg}
+
+        br
+        input.btn.btn-primary(type="submit" value="Submit")
+

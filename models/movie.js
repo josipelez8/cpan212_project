@@ -1,15 +1,15 @@
 let mongoose = require("mongoose");
 
-let bookSchema = mongoose.Schema({
+let movieSchema = mongoose.Schema({
     title: {
         type: String,
         required: true
     },
-    author: {
+    description: {
         type: String,
         required: true
     },
-    pages: {
+    year: {
         type: Number,
         required: true
     },
@@ -28,4 +28,4 @@ let bookSchema = mongoose.Schema({
 });
 
 
-let Book = module.exports = mongoose.model("Book", bookSchema);
+let Movie = module.exports = mongoose.model("Movie", movieSchema);

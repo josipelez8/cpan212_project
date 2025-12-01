@@ -1,0 +1,36 @@
+extends layout 
+
+block content
+    h1 Add Movie
+    //- Create form for movie and post to express route
+    form(method="POST", action="/movie/add")
+        //- Create input elements based on movie model
+        #form-group 
+            label Title:
+            input.form-control(name="title", type="text")
+
+        .form-group
+            label(for="description") Description:
+            textarea.form-control#description(name="description" rows="5" placeholder="Enter a detailed description...")
+    
+        #form-group 
+            label Year:
+            input.form-control(name="year", type="number")
+
+        #form-group
+            label Genres:
+            each genre in genres
+                label
+                    input(type="checkbox", name="genres", value=genre)
+                    |  #{genre}
+                
+        #form-group 
+            label Rating:
+            input.form-control(name="rating", type="number" min="0" max="10")
+
+        //- Loop through and display errors
+        if errors
+            each error in errors 
+                p(style="color:red") #{error.msg}
+        
+        input.btn.btn-primary(type="submit", value="Submit")

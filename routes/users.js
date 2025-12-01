@@ -36,6 +36,13 @@ router
     const errors = validationResult(req);
 
     if (errors.isEmpty()) {
+      let existingUser = await User.findOne({ email: req.body.email });
+      if (existingUser) {
+        return res.render("register", {
+          errors: [{ msg: "Email already exists" }],
+        });
+      }
+
       // Create new user from mongoose model
       let newUser = new User();
       // Assign attributes based on form data
@@ -74,6 +81,37 @@ router
     res.render("login");
   })
   .post(async (req, res, next) => {
+    await check("email", "Email is required").notEmpty().run(req);
+    await check("email", "Email is invalid").isEmail().run(req);
+    await check("password", "Password is required").notEmpty().run(req);
+
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        return res.render("login", { errors: errors.array() });
+    }
+
+    passport.authenticate("local", function (err, user, info) {
+        if (err) return next(err);
+
+        if (!user) {
+            // user is null if login failed
+            // this error message is probably overriden by 
+            // passport.js... whatever, fixes the no error bug atleast
+            return res.render("login", {
+                errors: [{ msg: info.message || "Invalid email or password" }],
+            });
+        }
+
+        req.logIn(user, function (err) {
+            if (err) return next(err);
+            return res.redirect("/");
+        });
+    })(req, res, next);
+});
+
+  /*
+  .post(async (req, res, next) => {
     // Check form elements are submitted and valid
     await check("email", "Email is required").notEmpty().run(req);
     await check("email", "Email is invalid").isEmail().run(req);
@@ -96,6 +134,7 @@ router
       });
     }
   });
+*/
 
 router.get("/logout", function (req, res) {
   // Function to logout user

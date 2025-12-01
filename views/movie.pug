@@ -1,0 +1,34 @@
+extends layout 
+
+block content 
+    .movie-details
+        //- Display title, description, year, rating
+        label Title: 
+            a(href="/movie/" + movie._id) #{movie.title}
+
+        br
+        label Description: 
+            span #{movie.description}
+
+        br
+        label Year: 
+            span #{movie.year}
+
+        br
+        label Rating: 
+            span #{movie.rating} / 10
+
+        br
+        label Genres: 
+            span #{movie.genres.join(', ')}
+
+        //- If user logged in
+        if user
+            hr
+            //- Hide edit and delete unless movie was posted by current user
+            if user._id == movie.posted_by
+                //- Link to edit movie
+                a.btn.btn-default(href="/movie/edit/" + movie._id) Edit Movie
+                br
+                //- Link to delete movie
+                a.btn.delete-movie(href="#", data-id=movie._id) Delete Movie

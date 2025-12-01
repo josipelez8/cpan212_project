@@ -11,7 +11,7 @@ $(document).ready(function(){
             url: "/movie/" + id,
             success: function(response){
                 // Show movie deleted and redirect
-                alert("Deleting Movie");
+                //alert("Deleting Movie");
                 window.location.href="/";
             },
             error: function(err){

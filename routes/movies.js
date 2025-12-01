@@ -50,6 +50,7 @@ router
       movie.genres = req.body.genres;
       movie.rating = req.body.rating;
       movie.posted_by = req.user.id;
+      movie.posted_by_name = req.user.name;
 
       // Save movie to MongoDB
       let result =  await movie.save()

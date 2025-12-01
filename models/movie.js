@@ -24,6 +24,10 @@ let movieSchema = mongoose.Schema({
     posted_by: {
         type: String,
         required: true
+    },
+    posted_by_name: {
+        type: String,
+        required: true
     }
 });
 

@@ -22,6 +22,10 @@ block content
         label Genres: 
             span #{movie.genres.join(', ')}
 
+        br
+        label Posted by: 
+            span #{movie.posted_by_name}
+
         //- If user logged in
         if user
             hr
